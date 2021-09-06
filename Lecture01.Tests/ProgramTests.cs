@@ -20,5 +20,45 @@ namespace Lecture01.Tests
             var output = writer.GetStringBuilder().ToString().Trim();
             Assert.Equal("Hello, World!", output);
         }
+
+        [Fact]
+        public void isLeapYear_True_input12()
+        {
+            var input = 12;
+
+            var output = Program.isLeapYear(input);
+
+            Assert.True(output);
+        }
+
+        [Fact]
+        public void isLeapYear_False_input13()
+        {
+            var input = 13;
+
+            var output = Program.isLeapYear(input);
+
+            Assert.False(output);
+        }
+
+        [Fact]
+        public void isLeapYear_False_input1700()
+        {
+            var input = 1700;
+
+            var output = Program.isLeapYear(input);
+
+            Assert.False(output);
+        }
+
+        [Fact]
+        public void isLeapYear_True_input1600()
+        {
+            var input = 1600;
+
+            var output = Program.isLeapYear(input);
+
+            Assert.True(output);
+        }
     }
 }
