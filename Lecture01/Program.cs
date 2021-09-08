@@ -10,6 +10,8 @@ namespace Lecture01
         }
 
         public static bool isLeapYear(int year){
+            if (year < 1582) throw new ArgumentOutOfRangeException();
+            
             if (year % 400 == 0){
                 return true;
             }
