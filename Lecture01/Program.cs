@@ -18,5 +18,16 @@ namespace Lecture01
             }
             else return year % 4 == 0;
         }
+
+        public static void userInputValidator(){
+            Console.WriteLine("Input year to check if it is a leap year:");
+            var input = Convert.ToInt32(Console.ReadLine());
+
+            if (isLeapYear(input)){
+                Console.WriteLine("yay");
+            } else {
+                Console.WriteLine("nay");
+            }
+        }
     }
 }

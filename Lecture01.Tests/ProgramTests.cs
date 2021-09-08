@@ -60,5 +60,68 @@ namespace Lecture01.Tests
 
             Assert.True(output);
         }
+
+        [Fact]
+        public void userInput_printYay_input1996()
+        {
+            // Arrange
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+
+            var input = new StringReader("1996");
+            Console.SetIn(input);
+
+            // Act
+            Program.userInputValidator();
+
+            // Assert
+            string[] output = writer.GetStringBuilder().ToString().Split(Environment.NewLine);
+            Assert.Equal("yay", output[1].Trim());
+
+            var isLeapYear = Program.isLeapYear(1996);
+            Assert.True(isLeapYear);
+        }
+
+        [Fact]
+        public void userInput_printNay_input2000()
+        {
+            // Arrange
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+
+            var input = new StringReader("2000");
+            Console.SetIn(input);
+
+            // Act
+            Program.userInputValidator();
+
+            // Assert
+            string[] output = writer.GetStringBuilder().ToString().Split(Environment.NewLine);
+            Assert.Equal("yay", output[1].Trim());
+
+            var isLeapYear = Program.isLeapYear(2000);
+            Assert.True(isLeapYear);
+        }
+
+        [Fact]
+        public void userInput_printNay_input1900()
+        {
+            // Arrange
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+
+            var input = new StringReader("1900");
+            Console.SetIn(input);
+
+            // Act
+            Program.userInputValidator();
+
+            // Assert
+            string[] output = writer.GetStringBuilder().ToString().Split(Environment.NewLine);
+            Assert.Equal("nay", output[1].Trim());
+
+            var isLeapYear = Program.isLeapYear(1900);
+            Assert.False(isLeapYear);
+        }
     }
 }
